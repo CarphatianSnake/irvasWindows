@@ -130,6 +130,14 @@ textarea:focus {
   cursor: pointer;
 }
 
+.button:disabled,
+.button[disabled] {
+  background: gray;
+  box-shadow: 1px 2px 20px 0px gray;
+  -webkit-box-shadow: 1px 2px 20px 0px gray;
+  border: 1px solid gray;
+}
+
 .section_header {
   margin-bottom: 8rem;
   text-align: center;
