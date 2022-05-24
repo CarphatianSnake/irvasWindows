@@ -1,9 +1,8 @@
 const timer = (deadline) => {
 
-  const saleSubtitle = document.querySelector('.sale_subtitle');
-
   const day = (new Date(deadline)).getDate(),
-        month = (new Date(deadline)).getMonth();
+        month = (new Date(deadline)).getMonth(),
+        saleSubtitle = document.querySelector('.sale_subtitle');
   
   const setSaleSubtitle = (date, month) => {
     return saleSubtitle.textContent = `Успей сэкономить на остеклении! Только до ${date} ${month}!`;

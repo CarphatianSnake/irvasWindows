@@ -18369,9 +18369,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var timer = function timer(deadline) {
-  var saleSubtitle = document.querySelector('.sale_subtitle');
   var day = new Date(deadline).getDate(),
-      month = new Date(deadline).getMonth();
+      month = new Date(deadline).getMonth(),
+      saleSubtitle = document.querySelector('.sale_subtitle');
 
   var setSaleSubtitle = function setSaleSubtitle(date, month) {
     return saleSubtitle.textContent = "\u0423\u0441\u043F\u0435\u0439 \u0441\u044D\u043A\u043E\u043D\u043E\u043C\u0438\u0442\u044C \u043D\u0430 \u043E\u0441\u0442\u0435\u043A\u043B\u0435\u043D\u0438\u0438! \u0422\u043E\u043B\u044C\u043A\u043E \u0434\u043E ".concat(date, " ").concat(month, "!");
