@@ -17988,7 +17988,7 @@ window.addEventListener('DOMContentLoaded', function () {
   Object(_modules_tabs__WEBPACK_IMPORTED_MODULE_2__["default"])('.decoration_slider', '.no_click', '.decoration_content > div > div', 'after_click');
   Object(_modules_tabs__WEBPACK_IMPORTED_MODULE_2__["default"])('.balcon_icons', '.balcon_icons_img', '.big_img > img', 'do_image_more', 'inline-block');
   Object(_modules_forms__WEBPACK_IMPORTED_MODULE_3__["default"])(modalState);
-  Object(_modules_timer__WEBPACK_IMPORTED_MODULE_5__["default"])('2022-07-18');
+  Object(_modules_timer__WEBPACK_IMPORTED_MODULE_5__["default"])('#timer', '2022-07-18');
 });
 
 /***/ }),
@@ -18368,13 +18368,62 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var timer = function timer(deadline) {
+var timer = function timer(id, deadline) {
+  var getTimeRemaining = function getTimeRemaining() {
+    var timeLeft = Date.parse(deadline) - Date.parse(new Date()),
+        days = Math.floor(timeLeft / (1000 * 60 * 60 * 24)),
+        hours = Math.floor(timeLeft / (1000 * 60 * 60) % 24),
+        minutes = Math.floor(timeLeft / (1000 * 60) % 60),
+        seconds = Math.floor(timeLeft / 1000 % 60);
+    return {
+      timeLeft: timeLeft,
+      days: days,
+      hours: hours,
+      minutes: minutes,
+      seconds: seconds
+    };
+  };
+
+  var timer = document.querySelector(id),
+      days = timer.querySelector('#days'),
+      hours = timer.querySelector('#hours'),
+      minutes = timer.querySelector('#minutes'),
+      seconds = timer.querySelector('#seconds'),
+      timeInterval = setInterval(updateTimer, 1000);
+  updateTimer();
+
+  function updateTimer() {
+    var timeRemaining = getTimeRemaining();
+
+    if (timeRemaining.timeLeft < 0) {
+      days.textContent = '00';
+      hours.textContent = '00';
+      minutes.textContent = '00';
+      seconds.textContent = '00';
+      clearInterval(timeInterval);
+    } else {
+      days.textContent = setTimerValues(timeRemaining.days);
+      hours.textContent = setTimerValues(timeRemaining.hours);
+      minutes.textContent = setTimerValues(timeRemaining.minutes);
+      seconds.textContent = setTimerValues(timeRemaining.seconds);
+    }
+
+    function setTimerValues(value) {
+      return value.toString().length > 1 ? value : "0".concat(value);
+    }
+
+    ;
+  }
+
+  ;
   var day = new Date(deadline).getDate(),
       month = new Date(deadline).getMonth(),
       saleSubtitle = document.querySelector('.sale_subtitle');
 
   var setSaleSubtitle = function setSaleSubtitle(date, month) {
-    return saleSubtitle.textContent = "\u0423\u0441\u043F\u0435\u0439 \u0441\u044D\u043A\u043E\u043D\u043E\u043C\u0438\u0442\u044C \u043D\u0430 \u043E\u0441\u0442\u0435\u043A\u043B\u0435\u043D\u0438\u0438! \u0422\u043E\u043B\u044C\u043A\u043E \u0434\u043E ".concat(date, " ").concat(month, "!");
+    if (id === '#timer') {
+      return saleSubtitle.textContent = "\u0423\u0441\u043F\u0435\u0439 \u0441\u044D\u043A\u043E\u043D\u043E\u043C\u0438\u0442\u044C \u043D\u0430 \u043E\u0441\u0442\u0435\u043A\u043B\u0435\u043D\u0438\u0438! \u0422\u043E\u043B\u044C\u043A\u043E \u0434\u043E ".concat(date, " ").concat(month, "!");
+    }
   };
 
   switch (month) {
@@ -18428,51 +18477,6 @@ var timer = function timer(deadline) {
   }
 
   ;
-
-  var getTimeRemaining = function getTimeRemaining() {
-    var timeLeft = Date.parse(deadline) - Date.parse(new Date()),
-        days = Math.floor(timeLeft / (1000 * 60 * 60 * 24)),
-        hours = Math.floor(timeLeft / (1000 * 60 * 60) % 24),
-        minutes = Math.floor(timeLeft / (1000 * 60) % 60),
-        seconds = Math.floor(timeLeft / 1000 % 60);
-    return {
-      timeLeft: timeLeft,
-      days: days,
-      hours: hours,
-      minutes: minutes,
-      seconds: seconds
-    };
-  };
-
-  var days = document.querySelector('#days'),
-      hours = document.querySelector('#hours'),
-      minutes = document.querySelector('#minutes'),
-      seconds = document.querySelector('#seconds'),
-      timeInterval = setInterval(updateTimer, 1000);
-
-  function updateTimer() {
-    var timeRemaining = getTimeRemaining();
-
-    var setValue = function setValue(value) {
-      return value.toString().length > 1 ? value : "0".concat(value);
-    };
-
-    days.textContent = setValue(timeRemaining.days);
-    hours.textContent = setValue(timeRemaining.hours);
-    minutes.textContent = setValue(timeRemaining.minutes);
-    seconds.textContent = setValue(timeRemaining.seconds);
-
-    if (timeRemaining.timeLeft < 0) {
-      days.textContent = '00';
-      hours.textContent = '00';
-      minutes.textContent = '00';
-      seconds.textContent = '00';
-      clearInterval(timeInterval);
-    }
-  }
-
-  ;
-  updateTimer();
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (timer);
