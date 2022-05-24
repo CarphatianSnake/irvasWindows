@@ -9,41 +9,41 @@ const timer = (deadline) => {
     return saleSubtitle.textContent = `Успей сэкономить на остеклении! Только до ${date} ${month}!`;
   };
 
-  switch (month.toString()) {
-    case '0':
+  switch (month) {
+    case 0:
       setSaleSubtitle(day, 'января');
       break;
-    case '1':
+    case 1:
       setSaleSubtitle(day, 'февраля');
       break;
-    case '2':
+    case 2:
       setSaleSubtitle(day, 'марта');
       break;
-    case '3':
+    case 3:
       setSaleSubtitle(day, 'апреля');
       break;
-    case '4':
+    case 4:
       setSaleSubtitle(day, 'мая');
       break;
-    case '5':
+    case 5:
       setSaleSubtitle(day, 'июня');
       break;
-    case '6':
+    case 6:
       setSaleSubtitle(day, 'июля');
       break;
-    case '7':
+    case 7:
       setSaleSubtitle(day, 'августа');
       break;
-    case '8':
+    case 8:
       setSaleSubtitle(day, 'сентября');
       break;
-    case '9':
+    case 9:
       setSaleSubtitle(day, 'октября');
       break;
-    case '10':
+    case 10:
       setSaleSubtitle(day, 'ноября');
       break;
-    case '11':
+    case 11:
       setSaleSubtitle(day, 'декабря');
       break;
   };

@@ -17988,7 +17988,7 @@ window.addEventListener('DOMContentLoaded', function () {
   Object(_modules_tabs__WEBPACK_IMPORTED_MODULE_2__["default"])('.decoration_slider', '.no_click', '.decoration_content > div > div', 'after_click');
   Object(_modules_tabs__WEBPACK_IMPORTED_MODULE_2__["default"])('.balcon_icons', '.balcon_icons_img', '.big_img > img', 'do_image_more', 'inline-block');
   Object(_modules_forms__WEBPACK_IMPORTED_MODULE_3__["default"])(modalState);
-  Object(_modules_timer__WEBPACK_IMPORTED_MODULE_5__["default"])('2022-08-18');
+  Object(_modules_timer__WEBPACK_IMPORTED_MODULE_5__["default"])('2022-07-18');
 });
 
 /***/ }),
@@ -18377,52 +18377,52 @@ var timer = function timer(deadline) {
     return saleSubtitle.textContent = "\u0423\u0441\u043F\u0435\u0439 \u0441\u044D\u043A\u043E\u043D\u043E\u043C\u0438\u0442\u044C \u043D\u0430 \u043E\u0441\u0442\u0435\u043A\u043B\u0435\u043D\u0438\u0438! \u0422\u043E\u043B\u044C\u043A\u043E \u0434\u043E ".concat(date, " ").concat(month, "!");
   };
 
-  switch (month.toString()) {
-    case '0':
+  switch (month) {
+    case 0:
       setSaleSubtitle(day, 'января');
       break;
 
-    case '1':
+    case 1:
       setSaleSubtitle(day, 'февраля');
       break;
 
-    case '2':
+    case 2:
       setSaleSubtitle(day, 'марта');
       break;
 
-    case '3':
+    case 3:
       setSaleSubtitle(day, 'апреля');
       break;
 
-    case '4':
+    case 4:
       setSaleSubtitle(day, 'мая');
       break;
 
-    case '5':
+    case 5:
       setSaleSubtitle(day, 'июня');
       break;
 
-    case '6':
+    case 6:
       setSaleSubtitle(day, 'июля');
       break;
 
-    case '7':
+    case 7:
       setSaleSubtitle(day, 'августа');
       break;
 
-    case '8':
+    case 8:
       setSaleSubtitle(day, 'сентября');
       break;
 
-    case '9':
+    case 9:
       setSaleSubtitle(day, 'октября');
       break;
 
-    case '10':
+    case 10:
       setSaleSubtitle(day, 'ноября');
       break;
 
-    case '11':
+    case 11:
       setSaleSubtitle(day, 'декабря');
       break;
   }
